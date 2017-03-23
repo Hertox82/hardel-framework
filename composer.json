@@ -1,0 +1,23 @@
+{
+    "name": "hadeluca/hardel-framework",
+    "description": "this is a php framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hernan Ariel De Luca",
+            "email": "hadeluca@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "vlucas/phpdotenv": "^2.4@dev",
+        "illuminate/container": "5.2.x-dev",
+        "illuminate/database": "5.2.x-dev"
+    },
+    "autoload":{
+        "psr-4":{
+            "Hardel\\":"hardel-framework/src"
+        }
+    }
+}
