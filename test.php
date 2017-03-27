@@ -14,6 +14,7 @@ $loader = require_once  __DIR__ .'/vendor/autoload.php';
 use Hardel\Core\Application;
 use Hardel\Core\Config;
 use Hardel\Core\Controller;
+use Hardel\Core\Request;
 
 $app = new Application();
 
@@ -32,4 +33,8 @@ $controller = $app->make('controller');
 //print_array($container);
 print_array($controller->getConfig()->ip);
 print_array($controller->getConfig()->HostName);
+
+$request = Request::createFromGlobal();
+
+print_array($request->getURI());
 
