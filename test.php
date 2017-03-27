@@ -37,4 +37,6 @@ print_array($controller->getConfig()->HostName);
 $request = Request::createFromGlobal();
 
 print_array($request->getURI());
+print_array($request->getServerName());
+print_array($request->getActualUrl());
 

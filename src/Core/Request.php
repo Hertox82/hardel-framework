@@ -62,6 +62,10 @@ class Request
 	{
 		return $this->serverParams['REQUEST_METHOD'];
 	}
+	public function getServerName()
+	{
+		return $this->serverParams['SERVER_NAME'];
+	}
 
 	public function getIpAddress()
 	{
@@ -97,12 +101,29 @@ class Request
 		return $this->postParams;
 	}
 
+	public function getActualUrl()
+	{
+		$url = '';
+		if(isset($this->serverParams['HTTPS']))
+		{
+			//aggancio https
+			$url.='https://';
+		}
+		else
+		{
+			$url.='http://';
+		}
+		$url.=$this->getServerName().$this->getQueryString();
+
+		return $url;
+	}
+
 	protected function setAttributes()
 	{
 		$qS = $this->getQueryString();
-
 		$aQS = explode('&', $qS);
-
+		array_shift($aQS);
+		
 		foreach ($aQS as $query) {
 			list($key,$value) = explode('=', $query);
 			$this->attributes[$key] = $value;

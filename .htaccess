@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    php_flag magic_quotes_gpc on
+    php_value post_max_size 30M
+    php_value upload_max_filesize 30M
+    php_value allow_url_fopen 1
+    php_value allow_url_include 1
+    php_value max_input_vars 3000
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ test.php?/$1 [QSA,L]
+</IfModule>
