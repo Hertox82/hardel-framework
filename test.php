@@ -14,7 +14,7 @@ $loader = require_once  __DIR__ .'/vendor/autoload.php';
 use Hardel\Core\Application;
 use Hardel\Core\Config;
 use Hardel\Core\Controller;
-use Hardel\Core\Request;
+use Hardel\Http\Request;
 
 $app = new Application();
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hardel\Core;
+namespace Hardel\Http;
 
 /**
 * 
