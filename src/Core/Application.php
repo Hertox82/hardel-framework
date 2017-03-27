@@ -2,7 +2,6 @@
 
 namespace Hardel\Core;
 
-use Illuminate\Container;
 
 class Application extends Container {
 
@@ -10,16 +9,22 @@ class Application extends Container {
 
 	public function __construct(){
 
-		$this->setInstace($this);
+		static::setInstace($this);
+		$this->bootstrap();
 	}
 
-	protected function setInstace(Container $app)
+	protected static function setInstace(Container $app)
 	{
-		static::instance = $app;
+		static::$instance = $app;
 	}
 
 	public static function getInstance()
 	{
-		return static::instance;
+		return static::$instance;
+	}
+
+	public function bootstrap()
+	{
+		//TODO
 	}
 }
